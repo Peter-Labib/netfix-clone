@@ -1,0 +1,45 @@
+@import './mixins.scss';
+
+%ourStory__card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 50px 5%;
+  // @include tablet {
+  // }
+
+}
+
+h1 {
+  font-size: 1.75rem;
+}
+
+h2 {
+  font-size: 1.125rem;
+  font-weight: 400;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+@include tablet {
+  h1 {
+    font-size: 3.125rem;
+  }
+
+  h2 {
+    font-size: 1.625rem;
+  }
+
+  h3 {
+    font-size: 23px;
+  }
+}
+
+@include desktop {
+  h3 {
+    font-size: 1.2rem;
+  }
+}

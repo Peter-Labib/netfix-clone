@@ -1,0 +1,65 @@
+@import '../../../style/mixins.scss';
+
+.banner {
+  //   background: url(https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Black_flag.svg/1200px-Black_flag.svg.png);
+  background-position: center 25%;
+  background-size: cover;
+  padding: 1rem;
+  color: #fff;
+  height: 55vh;
+  position: relative;
+
+  .banner__content {
+    margin-top: 5rem;
+
+    .banner__title {
+      font-size: 1.7rem;
+      padding-bottom: 0.3rem;
+    }
+    .banner__button {
+      background-color: rgba(51, 51, 51, 0.5);
+      color: #fff;
+      cursor: pointer;
+      padding: 0.3rem;
+      border-radius: 3px;
+      outline: none;
+      border: none;
+      margin-right: 1rem;
+      padding: 0.5rem 2rem;
+      transition: all ease 0.2s;
+
+      &:hover {
+        color: #000;
+        background-color: #e6e6e6;
+      }
+    }
+    .banner__description {
+      line-height: 120%;
+      max-width: 360px;
+      padding-top: 1rem;
+    }
+  }
+
+  &::after {
+    content: ' ';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 100%;
+    height: 7rem;
+    background: linear-gradient(
+      to bottom,
+      transparent,
+      rgba(37, 37, 37, 0.6),
+      #111
+    );
+  }
+}
+
+@include tablet {
+  .banner .banner__content {
+    .banner__title {
+      font-size: 3rem;
+    }
+  }
+}

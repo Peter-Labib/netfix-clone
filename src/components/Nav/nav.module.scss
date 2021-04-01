@@ -1,0 +1,41 @@
+@import '../../style/variables';
+@import '../../style/mixins.scss';
+
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: transparent;
+  transition: all ease-in-out 0.5s;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  z-index: 2;
+
+  &.nav_show {
+    background: black;
+  }
+  .nav__logo {
+    width: auto;
+    height: 1.5rem;
+    fill: $secondary-color
+  }
+
+  .nav__avatar {
+    width: 2rem;
+  }
+  .nav__logo, .nav__avatar {
+      cursor: pointer;
+  }
+}
+
+@include tablet {
+  .nav{
+    padding: 0.8rem 1.2rem;
+    .nav__logo {
+      height: 1.7rem;
+    }
+  }
+}
