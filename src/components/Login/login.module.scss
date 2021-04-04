@@ -1,0 +1,14 @@
+@import '../../style/placeholder';
+
+.signin_wrapper {
+  @extend %ourStory_wrapper;
+  height: 100vh;
+
+}
+
+.signin {
+    margin: auto;
+    width: fit-content;
+    padding: 0 5%;
+    border-radius: 2px;
+}

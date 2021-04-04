@@ -1,26 +1,19 @@
-@import '../../style/sharedStyles.scss';
+@import '../../style/placeholder';
+@import '../../style/mixins.scss';
+
 
 .ourStory {
-  color: #fff;
+  // display: grid;
+  @extend %ourStory_wrapper;
   text-align: center;
   // height: 75vh;
   min-height: 500px;
-  background: linear-gradient(
-      to top,
-      rgba(0, 0, 0, 0.6) 0,
-      rgba(0, 0, 0, 0.4) 60%,
-      rgba(0, 0, 0, 0.6) 100%
-    ),
-    linear-gradient(to top, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.7) 100%),
-    radial-gradient(at 50% 100%, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.7) 100%),
-    url(https://assets.nflxext.com/ffe/siteui/vlv3/92bb3a0b-7e91-40a0-b27b-f2c3ac9ef6e4/5e82ecf0-5873-4e02-8619-2307b8ed65a1/EG-en-20210322-popsignuptwoweeks-perspective_alpha_website_large.jpg)
-      center center/cover;
 
   .ourStory__card {
     @extend %ourStory__card;
     // position: relative;
-    position: absolute;
-    top: 10%;
+    // position: absolute;
+    // top: 10%;
 
     .ourStory__cardContainer {
       padding: 0.5rem 0.3rem;
@@ -55,6 +48,49 @@
   }
 }
 
+.input {
+  width: 100%;
+
+  .input__container {
+    position: relative;
+
+    .input__label {
+      position: absolute;
+      top: 33%;
+      left: 0.8rem;
+      font-size: 0.9rem;
+      transition: all ease 0.1s;
+      pointer-events: none;
+      z-index: 2;
+      color: #8c8c8c;
+
+      &.input__label_toTop {
+        top: 10%;
+        font-size: 0.7rem;
+      }
+    }
+
+    .input__element {
+      height: 48px;
+      border: 1px solid #8c8c8c;
+      padding: 0.8rem 0.8rem 0;
+      border-radius: 2px;
+      width: 100%;
+      font-size: 1rem;
+
+      &.input__element_error {
+        border-bottom: 1px solid #ffa00a;
+      }
+    }
+  }
+
+  .input_error {
+    text-align: left;
+    color: #ffa00a;
+    padding: 6px 3px;
+  }
+}
+
 .ourStory_animation {
   @extend %ourStory__card;
   border-top: 8px solid #222;
@@ -76,12 +112,14 @@
 
     .ourStory_animation__img_container {
       position: relative;
+
       .ourStory_animation__img {
         width: 100%;
         position: relative;
         z-index: 2;
       }
     }
+
     .ourStory_animation__subimage_container {
       display: flex;
       align-items: center;
@@ -108,6 +146,7 @@
           margin-right: 0;
         }
       }
+
       .ourStory_animation__subimage_text {
         margin: 0.3rem 0;
         flex: 1 1;
@@ -119,6 +158,7 @@
         }
       }
     }
+
     .ourStory_animation__video_container {
       position: absolute;
       top: 46%;
@@ -131,6 +171,7 @@
         top: 34%;
         width: 61%;
       }
+
       .ourStory_animation__video {
         width: 100%;
         height: 100%;
@@ -142,6 +183,7 @@
 @include tablet {
   .ourStory {
     min-height: 600px;
+
     .ourStory__card {
       .ourStory__cardContainer {
         .ourStory__formTitle {
@@ -161,6 +203,7 @@
 @include desktop {
   .ourStory {
     height: 100vh;
+
     .ourStory__card {
       .ourStory__cardContainer {
         margin-top: 15%;
@@ -168,31 +211,46 @@
         .ourStory__subtitle {
           margin: 1.4rem auto;
         }
+
         .ourStory__formTitle {
           max-width: none;
         }
+
         .ourStory__form {
           flex-direction: row;
           margin: auto;
           width: 41rem;
           min-height: 4.5rem;
+          align-items: flex-start;
+
+          .input {
+            .input__element {
+              height: 60px;
+            }
+          }
         }
       }
     }
+
+    // .input__label {
+    //   top: 30%;
+    //   font-size: 1rem;
+    // }
   }
 
   .ourStory_animation {
     text-align: left;
+
     .ourStory_animation__container {
       flex-direction: row;
-      .ourStory_animation__text{
+
+      .ourStory_animation__text {
         flex: 0 1 auto;
       }
-      
     }
 
     &:nth-of-type(odd) {
-      .ourStory_animation__container{
+      .ourStory_animation__container {
         .ourStory_animation__text {
           order: 2;
           padding-left: 2rem;
@@ -201,7 +259,7 @@
     }
 
     &:nth-of-type(even) {
-      .ourStory_animation__container{
+      .ourStory_animation__container {
         .ourStory_animation__text {
           padding-right: 2rem;
         }

@@ -1,0 +1,92 @@
+@import '../../../style/variables';
+@import '../../../style/mixins.scss';
+
+.signUp__icon_checkmark {
+  background-image: url('https://assets.nflxext.com/ffe/siteui/acquisition/simplicity/Checkmark.png');
+  // background-size: 50px;
+  width: 50px;
+  height: 50px;
+}
+
+// .signUp {
+//   color: #333;
+//   background-color: #fff;
+//   min-height: 100vh;
+
+//   .signUp__container {
+//     padding: 20px 32px 60px;
+//     max-width: 978px;
+//     margin: auto;
+
+//     .signUp__regContainer {
+//       margin: auto;
+//       max-width: 340px;
+
+//       .signUp__icon {
+//         margin-top: 30%;
+//         margin-bottom: 20px;
+//         width: 50px;
+//         height: 50px;
+//         background: url('https://assets.nflxext.com/ffe/siteui/acquisition/simplicity/Checkmark.png')
+//           50% 50% no-repeat;
+//         background-size: 50px;
+//       }
+//       .signUp_step {
+//         font-size: 14px;
+//       }
+//       .signUp_stepTitle {
+//         font-size: 23px;
+//       }
+
+//       .checkmark_group {
+//         margin: 1.5rem 0 2.4rem;
+
+//         .checkmark_group__row {
+//           display: flex;
+//           align-items: flex-start;
+//           justify-content: flex-start;
+
+//           .checkmark_group__icon {
+//             color: $secondary-color;
+//             height: 24px;
+//             width: 24px;
+//           }
+//           .checkmark_group__txt {
+//             margin-top: 2px;
+//             margin-left: 10px;
+//             font-size: 1.1rem;
+//           }
+
+//           &:not(:nth-of-type(1)) {
+//             margin-top: 1rem;
+//           }
+//         }
+//       }
+//     }
+//   }
+// }
+
+// @include tablet {
+//   .signUp {
+//     text-align: center;
+//     .signUp__container .signUp__regContainer {
+//         .signUp__icon {
+//             margin-top: 40%;
+//             margin-left:auto;
+//             margin-right: auto;
+
+//         }
+//         .checkmark_group{
+//             margin: 1.5rem auto 2.4rem;
+//             max-width: 300px;
+//             text-align: left;
+//         }
+//     }
+//   }
+// }
+
+// @include desktop {
+//     .signUp .signUp__container .signUp__regContainer .signUp__icon {
+//         margin-top: 25% ;
+//     }
+// }
