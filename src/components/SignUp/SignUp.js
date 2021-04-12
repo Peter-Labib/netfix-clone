@@ -1,5 +1,5 @@
 import React from 'react'
-import { Route } from 'react-router-dom'
+import { Route, Redirect, Switch } from 'react-router-dom'
 import { CSSTransition } from 'react-transition-group'
 import Registration from './Registration/Registration'
 import RegForm from './RegForm/RegForm'
@@ -32,25 +32,28 @@ const SignUp = (props) => {
   return (
     <div className='signUp'>
       <SignUpNav />
-      <Route path={props.match.url} exact render={() => signUpPage} />
-      <Route
-        path={props.match.url + '/registration'}
-        exact
-        component={Registration}
-      />
-      <Route path={props.match.url + '/regForm'}>
-        {(props) => (
-          <CSSTransition
-            in={props.match != null}
-            timeout={300}
-            classNames='slide'
-            unmountOnExit
-            mountOnEnter
-          >
-            <RegForm {...props} />
-          </CSSTransition>
-        )}
-      </Route>
+      <Switch>
+        <Route path={props.match.url} exact render={() => signUpPage} />
+        <Route
+          path={props.match.url + '/registration'}
+          exact
+          component={Registration}
+        />
+        <Route path={props.match.url + '/regForm'}>
+          {(props) => (
+            <CSSTransition
+              in={props.match != null}
+              timeout={300}
+              classNames='slide'
+              unmountOnExit
+              mountOnEnter
+            >
+              <RegForm {...props} />
+            </CSSTransition>
+          )}
+        </Route>
+        <Redirect to='/' />
+      </Switch>
     </div>
   )
 }

@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { Route, Switch } from 'react-router-dom'
+import { Route, Switch, Redirect } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { auth } from './utils/firebase'
 import { authSuccess } from './store/actions/index'
@@ -27,6 +27,7 @@ function App(props) {
         <Route path='/' exact component={authed ? AuthedHome : Home} />
         <Route path='/signup' component={SignUp} />
         <Route path='/login' component={Login} />
+        <Redirect to='/' />
       </Switch>
     </div>
   )
