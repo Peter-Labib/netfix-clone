@@ -10,18 +10,26 @@
   padding: 0.2rem 0.5rem;
   border: none;
   cursor: pointer;
+  outline: 0;
 
   &.nfBtn_Big {
     font-size: 1.5rem;
     font-weight: 700;
     padding: 0.35rem 1rem;
-    min-height: 55px;
+    min-height: 40px;
+    justify-self: center;
+    order: 3;
   }
 
   &.signBtn{
     width: 100%;
     min-height: 48px;
     padding: .7rem 1.8rem;
+    box-shadow: 0 1px 1px rgba($color: #000000, $alpha: .25);
+  }
+
+  &.nfBtn_loading{
+    background-color:rgba($color: $secondary-color, $alpha: 0.7)
   }
 }
 
@@ -35,6 +43,8 @@
 @include desktop {
   .nfBtn.nfBtn_Big {
     min-width: fit-content;
+    justify-self: stretch;
+    order: 2;
     min-height: 60px;
     padding: 0 3rem;
     border-radius: 0;

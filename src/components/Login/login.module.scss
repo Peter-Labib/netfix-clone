@@ -1,14 +1,56 @@
+@import '../../style/mixins.scss';
 @import '../../style/placeholder';
 
-.signin_wrapper {
-  @extend %ourStory_wrapper;
+.signin {
+  @extend %ourStory_wrapper_tablet;
   height: 100vh;
 
+  .logoContainer {
+    padding: 1rem 0.7rem;
+  }
 }
 
-.signin {
-    margin: auto;
-    width: fit-content;
-    padding: 0 5%;
-    border-radius: 2px;
+.signin__body {
+  margin: 0 auto;
+  padding: 0 1rem;
+  min-height: 550px;
+}
+
+.signin__form {
+  margin: auto;
+  border-radius: 2px;
+  color: #fff;
+}
+
+.form__title {
+  margin-bottom: 2rem;
+}
+
+.form__error {
+  color: $primary-error;
+}
+
+.form__btnContainer {
+  margin-top: 3rem;
+}
+
+@include tablet {
+  .signin {
+    background-color: none;
+  }
+
+  .signin__body {
+    padding: 0 1rem;
+    max-width: 450px;
+    min-height: 550px;
+  }
+
+  .signin__form {
+    padding: 60px 68px 40px;
+    background-color: rgba(0, 0, 0, 0.75);
+  }
+
+  .form__title {
+    font-size: 2rem;
+  }
 }

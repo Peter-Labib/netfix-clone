@@ -1,25 +1,15 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { Formik, Form } from 'formik'
+import { connect } from 'react-redux'
+import { setInitialEmail } from '../../store/actions/index'
 import * as yup from 'yup'
 import Nav from '../Nav/Nav'
 import Btn from '../UI/Btn/Btn'
+import Input from '../UI/Input/Input'
 import './home.scss'
 
 const Home = (props) => {
-  console.log(props)
-  const [onFocus, setOnFocus] = useState(false)
-  const [value, setValue] = useState('')
-
-  const onFocusLabelHandler = () => {
-    setOnFocus(true)
-  }
-
-  const onBlurLabelHandler = () => {
-    if (!value.trim()) {
-      setOnFocus(false)
-    }
-  }
-
+  const { initialEmail } = props
   return (
     <React.Fragment>
       <div className='ourStory'>
@@ -36,6 +26,7 @@ const Home = (props) => {
               Ready to watch? Enter your email to create or restart your
               membership.
             </h3>
+
             <Formik
               initialValues={{ email: '' }}
               validationSchema={yup.object().shape({
@@ -43,46 +34,26 @@ const Home = (props) => {
                   .string()
                   .email('Please enter a valid email address')
                   .required('Email is required!'),
-              })
-            }
-           onSubmit={()=>{
-             props.history.push('/signup')
-           }}
+              })}
+              onSubmit={(value) => {
+                initialEmail(value.email)
+                props.history.push('/signup')
+              }}
             >
-              {({ errors, handleBlur, handleChange,  }) => (
-                <Form className='ourStory__form'>
-                  <div className='input'>
-                    <div className='input__container'>
-                      <label
-                        className={`input__label
-            ${onFocus && 'input__label_toTop'}`}
-                        htmlFor='homeEmailAddress'
-                      >
-                        Email address
-                      </label>
-                      <input
-                        className={`input__element ${
-                          errors.email && 'input__element_error'
-                        }`}
-                        id='homeEmailAddress'
-                        type='email'
-                        name='email'
-                        onFocus={onFocusLabelHandler}
-                        onBlur={(e) => {
-                          onBlurLabelHandler()
-                          handleBlur(e)
-                        }}
-                        onChange={(e) => {
-                          setValue(e.target.value)
-                          handleChange(e)
-                        }}
-                        autoComplete='email'
-                        maxLength='50'
-                      />
-                    </div>
+              {({ errors, handleBlur, handleChange }) => (
+                <Form>
+                  <div className='ourStory__form'>
+                    <Input
+                      placeholder='Email address'
+                      type='email'
+                      large={true}
+                      blurHandler={handleBlur}
+                      changeHandler={handleChange}
+                      error={errors.email}
+                    />
                     <p className='input_error'>{errors.email}</p>
+                    <Btn isLarge={true}>Get started</Btn>
                   </div>
-                  <Btn isLarge={true}>Get started</Btn>
                 </Form>
               )}
             </Formik>
@@ -178,4 +149,8 @@ const Home = (props) => {
   )
 }
 
-export default Home
+const mapDispatchToProps = (dispatch) => ({
+  initialEmail: (email) => dispatch(setInitialEmail(email)),
+})
+
+export default connect(null, mapDispatchToProps)(Home)

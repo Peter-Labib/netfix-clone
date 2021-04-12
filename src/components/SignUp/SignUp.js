@@ -1,13 +1,15 @@
 import React from 'react'
 import { Route } from 'react-router-dom'
+import { CSSTransition } from 'react-transition-group'
 import Registration from './Registration/Registration'
+import RegForm from './RegForm/RegForm'
 import SignUpNav from '../Nav/SignUpNav/SignUpNav'
 import Btn from '../UI/Btn/Btn'
 import './signUp.scss'
 
 const SignUp = (props) => {
   const onClickHandler = () => {
-    props.history.push(props.match.url + '/registration')
+    props.history.push(props.match.url + '/regForm')
   }
 
   const signUpPage = (
@@ -30,11 +32,25 @@ const SignUp = (props) => {
   return (
     <div className='signUp'>
       <SignUpNav />
-        <Route path={props.match.url} exact render={()=>signUpPage}/>
-        <Route
-          path={props.match.url + '/registration'}
-          component={Registration}
-        />
+      <Route path={props.match.url} exact render={() => signUpPage} />
+      <Route
+        path={props.match.url + '/registration'}
+        exact
+        component={Registration}
+      />
+      <Route path={props.match.url + '/regForm'}>
+        {(props) => (
+          <CSSTransition
+            in={props.match != null}
+            timeout={300}
+            classNames='slide'
+            unmountOnExit
+            mountOnEnter
+          >
+            <RegForm {...props} />
+          </CSSTransition>
+        )}
+      </Route>
     </div>
   )
 }

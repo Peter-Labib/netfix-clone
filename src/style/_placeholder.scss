@@ -1,3 +1,5 @@
+@import './mixins.scss';
+
 %ourStory__card {
   display: flex;
   align-items: center;
@@ -17,4 +19,26 @@
     radial-gradient(at 50% 100%, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.7) 100%),
     url(https://assets.nflxext.com/ffe/siteui/vlv3/92bb3a0b-7e91-40a0-b27b-f2c3ac9ef6e4/5e82ecf0-5873-4e02-8619-2307b8ed65a1/EG-en-20210322-popsignuptwoweeks-perspective_alpha_website_large.jpg)
       center center/cover;
+}
+
+%ourStory_wrapper_tablet {
+  background: #000;
+
+  @include tablet {
+    color: #fff;
+    background: linear-gradient(
+        to top,
+        rgba(0, 0, 0, 0.6) 0,
+        rgba(0, 0, 0, 0.4) 60%,
+        rgba(0, 0, 0, 0.6) 100%
+      ),
+      linear-gradient(to top, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.7) 100%),
+      radial-gradient(
+        at 50% 100%,
+        rgba(0, 0, 0, 0) 50%,
+        rgba(0, 0, 0, 0.7) 100%
+      ),
+      url(https://assets.nflxext.com/ffe/siteui/vlv3/92bb3a0b-7e91-40a0-b27b-f2c3ac9ef6e4/5e82ecf0-5873-4e02-8619-2307b8ed65a1/EG-en-20210322-popsignuptwoweeks-perspective_alpha_website_large.jpg)
+        center center/cover;
+  }
 }

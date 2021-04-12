@@ -8,12 +8,12 @@
     display: block;
 
 }
-.singUp {
+.logo_large {
     width: 75px;;
 }
 
 @include tablet {
-    .singUp {
+    .logo_large {
         width: 167px;
         height: 45px;
     }

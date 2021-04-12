@@ -1,19 +1,13 @@
 @import '../../style/placeholder';
 @import '../../style/mixins.scss';
 
-
 .ourStory {
-  // display: grid;
   @extend %ourStory_wrapper;
   text-align: center;
-  // height: 75vh;
   min-height: 500px;
 
   .ourStory__card {
     @extend %ourStory__card;
-    // position: relative;
-    // position: absolute;
-    // top: 10%;
 
     .ourStory__cardContainer {
       padding: 0.5rem 0.3rem;
@@ -37,57 +31,18 @@
       }
 
       .ourStory__form {
-        margin: 0 1rem;
-        display: flex;
-        align-items: center;
-        flex-direction: column;
-        justify-content: space-between;
+        display: grid;
+        grid-template-columns: 100%;
+        grid-template-rows: repeat(3, auto);
+        row-gap: 0.5rem;
         min-height: 8rem;
+
+        .input_error {
+          color: $primary-error;
+          text-align: left;
+        }
       }
     }
-  }
-}
-
-.input {
-  width: 100%;
-
-  .input__container {
-    position: relative;
-
-    .input__label {
-      position: absolute;
-      top: 33%;
-      left: 0.8rem;
-      font-size: 0.9rem;
-      transition: all ease 0.1s;
-      pointer-events: none;
-      z-index: 2;
-      color: #8c8c8c;
-
-      &.input__label_toTop {
-        top: 10%;
-        font-size: 0.7rem;
-      }
-    }
-
-    .input__element {
-      height: 48px;
-      border: 1px solid #8c8c8c;
-      padding: 0.8rem 0.8rem 0;
-      border-radius: 2px;
-      width: 100%;
-      font-size: 1rem;
-
-      &.input__element_error {
-        border-bottom: 1px solid #ffa00a;
-      }
-    }
-  }
-
-  .input_error {
-    text-align: left;
-    color: #ffa00a;
-    padding: 6px 3px;
   }
 }
 
@@ -206,7 +161,7 @@
 
     .ourStory__card {
       .ourStory__cardContainer {
-        margin-top: 15%;
+        margin-top: 5%;
 
         .ourStory__subtitle {
           margin: 1.4rem auto;
@@ -217,25 +172,17 @@
         }
 
         .ourStory__form {
-          flex-direction: row;
+          grid-template-columns: 65% 1fr;
           margin: auto;
           width: 41rem;
           min-height: 4.5rem;
-          align-items: flex-start;
 
-          .input {
-            .input__element {
-              height: 60px;
-            }
+          .input_error {
+            order: 3;
           }
         }
       }
     }
-
-    // .input__label {
-    //   top: 30%;
-    //   font-size: 1rem;
-    // }
   }
 
   .ourStory_animation {

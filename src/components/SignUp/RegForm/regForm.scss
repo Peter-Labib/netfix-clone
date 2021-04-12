@@ -1,0 +1,43 @@
+@import '../../../style/variables';
+.signUp_warning {
+    margin:auto;
+    display:flex;
+    align-items: center;
+    padding: 1rem;
+    color:#fff;
+    background-color: #ffa00a;
+    border-radius: 2px;
+    margin-bottom: 1.5rem;
+
+}
+.signUp__container.signUp__container_regform {
+  margin-top: 1rem;
+  text-align: left;
+}
+.signUp__formTxt {
+  font-size: 19px;
+  margin-top: 0.7rem;
+}
+.signUp_form__error {
+  color: $secondary-error;
+}
+.signUp_form__btnContainer {
+  margin-top: 1rem;
+}
+
+.fade-enter{
+  opacity: 0;
+  transform: scale(.9);
+}
+
+.fade-enter-active{
+  opacity: 1;
+  transform: scale(1);
+  transition: all 300ms ease ;
+}
+
+.fade-exit-active {
+  opacity: 0;
+  transform: scale(.9);
+  transition: all 300ms ease ;
+}

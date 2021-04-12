@@ -1,44 +1,69 @@
 @import '../../../style/mixins.scss';
+@import '../../../style/variables';
 
 .input {
-  position: relative;
   width: 100%;
+  margin-top: 1rem;
+  overflow: hidden;
+  border-radius: 2px;
+  height: 60px;
 
-  .input__element {
-    height: 48px;
-    border: 1px solid #8c8c8c;
-    padding: 0.8rem 0.8rem 0;
-    border-radius: 2px;
-    width: 100%;
-    font-size: 1rem;
+  .input__container {
+    position: relative;
+    height: 100%;
+
+    .input__label {
+      position: absolute;
+      top: 33%;
+      left: 0.8rem;
+      font-size: 0.9rem;
+      transition: all ease 0.1s;
+      pointer-events: none;
+      z-index: 2;
+      color: #8c8c8c;
+
+      &.input__label_toTop {
+        top: 10%;
+        font-size: 0.7rem;
+      }
+    }
+
+    .input__element {
+      border: 1px solid #8c8c8c;
+      padding: 0.8rem 0.8rem 0;
+      width: 100%;
+      height: 100%;
+      font-size: 1rem;
+      outline: 0;
+
+      &.input__element_error {
+        border-bottom: 2px solid $primary-error;
+      }
+    }
   }
 
-  .input__label {
-    position: absolute;
-    top: 33%;
-    left: 0.8rem;
-    font-size: 0.9rem;
-    transition: all ease 0.1s;
-    pointer-events: none;
-    z-index: 2;
-    color: #8c8c8c;
+  &:nth-last-of-type() {
+    margin-bottom: 1rem;
+  }
 
-    &.input__label_toTop {
-      top: 10%;
-      font-size: 0.7rem;
+  &_large {
+    height: 48px;
+    margin-top: 0;
+  }
+
+  &_signup {
+    .input__container .input__element.input__element_error {
+      border: 1px solid $secondary-error;
     }
+  }
+
+  &_signin {
+    border-radius: 4px;
   }
 }
 
 @include desktop {
-  .input.input_Large {
-    .input__element {
-      height: 60px;
-    }
-
-    // .input__label {
-    //   top: 30%;
-    //   font-size: 1rem;
-    // }
+  .input.input_large {
+    height: 60px;
   }
 }
